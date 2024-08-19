@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+
+kind: Deployment
+metadata:
+  name: archivarius-frontend-deployment
+
+spec:
+  selector:
+    matchLabels:
+      app: archivarius-frontend
+
+  template:
+    metadata:
+      labels:
+        app: archivarius-frontend
+
+    spec:
+      containers:
+        - name: archivarius-frontend
+          image: rg.pl-waw.scw.cloud/namespace-anfanik/archivarius-frontend:latest
+
+      imagePullSecrets:
+        - name: anfanik-container-registry
+
+---
+
+apiVersion: v1
+
+kind: Service
+metadata:
+  name: archivarius-frontend-svc
+
+spec:
+  type: ClusterIP
+  selector:
+    app: archivarius-frontend
+  ports:
+    - port: 80
+      targetPort: 80
+
+---
+
+apiVersion: traefik.io/v1alpha1
+
+kind: IngressRoute
+metadata:
+  name: archivarius-frontend-ingress
+
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`archivarius.anfanik.me`) && !PathPrefix(`/api`)
+      kind: Rule
+      services:
+        - name: archivarius-frontend-svc
+          port: 80

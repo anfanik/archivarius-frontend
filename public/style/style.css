@@ -1,0 +1,292 @@
+a,
+text,
+p,
+button,
+div {
+    text-decoration: none;
+    color: white;
+}
+
+html {
+    display: block;
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+body {
+    display: block;
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+main {
+    display: block;
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'JetBrains Mono', monospace;
+    overflow-y: hidden;
+}
+
+.interface-text-editor {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas: "tool code";
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+}
+
+.tool {
+    border-right: solid 1px #3C3C3C;
+    grid-area: tool;
+    background: #1E1E1E;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.code {
+    grid-area: code;
+    background: #1E1E1E;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas: "line textarea";
+    overflow-y: visible;
+}
+
+.line {
+    color: rgba(255, 255, 255, 0.493);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 190%;
+    padding-top: 1em;
+    text-align: center;
+    grid-area: line;
+    height: 100%;
+}
+
+.line {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.textarea {
+    grid-area: textarea;
+    height: 100%;
+}
+
+.tool-panel {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: ;
+    gap: 6px 0px;
+}
+
+.tool-btn {
+    border-radius: 7px;
+    box-sizing: border-box;
+    width: 60px;
+    height: 60px;
+    background: #1E1E1E;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.tool-btn {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.tool-btn span {
+    margin: auto;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 0;
+    display: block;
+    left: 60px;
+    top: calc(50% - 60px);
+    width: 180px;
+    height: auto;
+    background: rgb(20, 20, 20);
+    z-index: 0;
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    border-radius: 8px;
+    border: solid 1px #252525;
+    overflow: hidden;
+}
+
+.tool-btn:hover span {
+    transition: 0.3s;
+    z-index: 6;
+    left: 70px;
+    top: calc(50% - 60px);
+    visibility: visible;
+    pointer-events: none;
+    opacity: 1;
+}
+
+span text {
+    pointer-events: none;
+    display: block;
+    padding-left: 13px;
+    margin-bottom: 9px;
+    font-size: 14px;
+    font-family: 400;
+    color: white;
+}
+
+span h1 {
+    pointer-events: none;
+    display: block;
+    padding-left: 13px;
+    margin-top: 9px;
+    margin-bottom: 0px;
+    font-size: 17px;
+    font-family: 800;
+    color: white;
+}
+
+span img {
+    pointer-events: none;
+    display: block;
+    width: 178px;
+    height: 165px;
+    background: #141414;
+    border: solid 0px;
+}
+
+.tool-btn:hover {
+    transition: 0.3s;
+    background: #444444;
+}
+
+.tool-btn:active {
+    background: #777777;
+}
+
+.tool-info {
+    position: absolute;
+    z-index: 5;
+    display: inline-block;
+    left: 100px;
+    width: 100px;
+    height: 100px;
+}
+
+.tool-icon {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.tool-footnotes {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 800;
+    color: #9b9b9b;
+    height: 20px;
+    padding: 5px;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.tool-footnotes-edit {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 800;
+    color: #9b9b9b;
+    height: 20px;
+    padding: 5px;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.textareaa {
+    padding: 0px;
+    padding-top: 1em;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 190%;
+    font-family: 'JetBrains Mono', monospace;
+    color: white;
+}
+
+.inputarea {
+    background: #1E1E1E;
+}
+
+textarea:focus {
+    outline: none;
+    border: none;
+}
+
+textarea::selection {
+    background: rgb(82, 129, 192);
+}
+
+#messages {
+    position: fixed;
+    top: 0px;
+    right: 138px;
+    margin: 0;
+    padding: 0;
+    width: 400px;
+}
