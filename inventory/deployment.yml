@@ -50,7 +50,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`archivarius.anfanik.me`) && !PathPrefix(`/api`)
+    - match: Host(`paste.anfanik.me`) && !PathPrefix(`/api`)
       kind: Rule
       services:
         - name: archivarius-frontend-svc
